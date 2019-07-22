@@ -6,11 +6,16 @@ class OrderContainer extends Component {
         super(props);
         this.state = {
             value: 1,
+            orders: [
+                { id: 1, amount: 90 },
+                { id: 2, amount: 100 },
+                { id: 3, amount: 350 },
+            ]
         };
     }
 
     increment = (x, y) => {
-       console.log('testing');
+        console.log('testing');
     };
 
     render() {
@@ -18,11 +23,14 @@ class OrderContainer extends Component {
             <div>
                 <h1>Tes ting</h1>
                 <h1>{this.state.value}</h1>
-                <Counter value={this.state.value} increment={this.increment} />
+                <Counter value={this.state.value}
+                    increment={this.increment}
+                    orders={this.state.orders} />
             </div>
+            
         );
-    }
-
+    }      
 }
-
+    
+                
 export default OrderContainer;

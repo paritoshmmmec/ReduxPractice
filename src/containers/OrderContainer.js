@@ -14,7 +14,7 @@ class OrderContainer extends Component {
         };
     }
 
-    increment = (x, y) => {
+    increment = () => {
         console.log('testing');
     };
 
@@ -27,10 +27,10 @@ class OrderContainer extends Component {
                     increment={this.increment}
                     orders={this.state.orders} />
             </div>
-            
+
         );
-    }      
+    }
 }
-    
-                
+
+
 export default OrderContainer;

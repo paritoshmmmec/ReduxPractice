@@ -1,5 +1,14 @@
 import React, { Component } from 'react'
 import Counter from '../components/Counter'
+import Example from '../components/Example'
+
+const test = <h1> testing </h1>;
+const Button = props => {
+    const { kind, ...other } = props;
+    const className = kind === "primary" ? "PrimaryButton" : "SecondaryButton";
+    return <div className={className}  {...other} />;
+};
+
 
 class OrderContainer extends Component {
     constructor(props) {
@@ -21,6 +30,11 @@ class OrderContainer extends Component {
     render() {
         return (
             <div>
+                {test}
+                <Example/>
+                <Button kind="primary" value="testing" >
+                    Hello World!
+                </Button>
                 <h1>Tes ting</h1>
                 <h1>{this.state.value}</h1>
                 <Counter value={this.state.value}

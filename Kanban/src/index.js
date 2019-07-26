@@ -1,13 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import OrderContainer from './containers/OrderContainer'
+import App from './pages/App'
 const rootEl = document.getElementById('root')
 
-const render = () => ReactDOM.render(
-    <div>
-        <OrderContainer />
-    </div>,
-    rootEl
-)
+const render = () => ReactDOM.render(<App/>, rootEl)
 
 render()

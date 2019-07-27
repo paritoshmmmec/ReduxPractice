@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import DetailContainer from '../components/DetailContainer';
 import KanbanBoard from '../containers/KanbanBoard'
 
 let cardsList = [
@@ -35,9 +36,34 @@ let cardsList = [
 ];
 
 export default class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showBasketDetails: false,
+        };
+    }
+
+    toggleDetails = () => {
+        this.setState((prevState) => ({
+            showBasketDetails: !prevState.showBasketDetails,
+        }));
+    }
+
 
     render() {
-        return <KanbanBoard cards={cardsList} />;
+        return (
+            <div>
+                <KanbanBoard cards={cardsList} />
+                <input type="button" value="Click me!" onClick={this.toggleDetails} />
+                <DetailContainer
+                    handleClose={this.toggleDetails}
+                    isOpen={this.state.showBasketDetails}
+                   
+                >
+                    <code>Drawer contents</code>
+                </DetailContainer>
+            </div>
+        );
     }
 
 }

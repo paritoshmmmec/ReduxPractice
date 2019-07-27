@@ -5,7 +5,7 @@ class CheckList extends Component {
             <li className="checklist__task"  key={task.id}>
                 <input type="checkbox"  key={task.id} defaultChecked={task.done} />
                 {task.name}
-                <a href="#" className="checklist__task--remove" />
+                <a href="/order" className="checklist__task--remove" >Remove</a>
             </li>
         ));
 

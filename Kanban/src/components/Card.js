@@ -17,6 +17,7 @@ class Card extends Component {
     render() {
         return (
             <div className="card" key={this.props.card.id}>
+                <input type="checkbox" checked={this.props.isSelected} onChange={() => { this.props.handleChange(this.props.card) }} />
                 <div className="card__title" onClick={this.handleDetails}>
                     {this.props.card.title}
                 </div>

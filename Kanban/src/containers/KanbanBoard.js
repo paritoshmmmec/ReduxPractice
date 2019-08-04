@@ -1,5 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import List from '../components/List';
+
+function Example() {
+    // Declare a new state variable, which we'll call "count"
+
+    const [isOpen, toggle] = useState(false);
+
+    return (
+        <div>
+            <p>You clicked {isOpen.toString()} times</p>
+            <button onClick={() => toggle(!isOpen)}>
+                Click me
+        </button>
+        </div>
+    );
+}
 
 export default class KanbanBoard extends Component {
     constructor(props) {
@@ -75,6 +90,7 @@ export default class KanbanBoard extends Component {
     render() {
         return (
             <div className="app">
+                <Example />
                 {/* <div className="list">
                     <h1>To Do</h1>
                     {this.state.cards.filter((card) => card.status === "todo")

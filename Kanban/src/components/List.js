@@ -2,7 +2,6 @@ import React from 'react';
 import Card from './Card';
 
 const List = ({ cards, title, handleChange }) => {
-    console.log(handleChange);
     return (
         <div className="list">
             <h1>{title}</h1>

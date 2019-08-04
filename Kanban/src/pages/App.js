@@ -1,12 +1,30 @@
 import React, { Component } from 'react'
-import DetailContainer from '../components/DetailContainer';
 import KanbanBoard from '../containers/KanbanBoard'
+
+const TestComponent = React.lazy(() => import('../components/TestComponent'));
+
+export const createHead = (withWidth) => {
+    return {
+        cells: [
+            {
+                key: 'id',
+                content: 'id'
+            }
+        ],
+    };
+};
+
+export const head = createHead(true);
+
 
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             showBasketDetails: false,
+            isLoaded: false,
+            items: [],
+            error: null
         };
     }
 
@@ -16,19 +34,23 @@ export default class App extends Component {
         }));
     }
 
+    showDetails = () => {
+        this.setState(() => ({
+            showBasketDetails: true,
+        }));
+    }
+
 
     render() {
         return (
-            <div>
-                <KanbanBoard  />
+            <div onScroll={this.showDetails}>
+                <KanbanBoard />
                 <input type="button" value="Click me!" onClick={this.toggleDetails} />
-                <DetailContainer
-                    handleClose={this.toggleDetails}
-                    isOpen={this.state.showBasketDetails}
-                   
-                >
-                    <code>Drawer contents</code>
-                </DetailContainer>
+
+                <React.Suspense fallback={<div>Loading Component...</div>}>
+                    {this.state.showBasketDetails && <TestComponent />}
+                </React.Suspense>
+
             </div>
         );
     }

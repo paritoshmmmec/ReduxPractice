@@ -48,7 +48,7 @@ export default class App extends Component {
                 <input type="button" value="Click me!" onClick={this.toggleDetails} />
 
                 <React.Suspense fallback={<div>Loading Component...</div>}>
-                    {this.state.showBasketDetails && <TestComponent />}
+                    <TestComponent />
                 </React.Suspense>
 
             </div>
